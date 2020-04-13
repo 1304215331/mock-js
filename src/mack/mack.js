@@ -60,29 +60,56 @@ Mock.mock("/patient", "post",
         });
         return patient[0];
     });
-Mock.mock(/\/main.index/,"get",(options)=>{
+Mock.mock(/\/main.index/, "get", (options) => {
     var srting = options.url.split("?")[1].split("=")[1]
-    if(srting == '15116703172'){
+    if (srting == '15116703172') {
         return {
             name: '谢宇',
             url: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3158941597,1615290616&fm=26&gp=0.jpg',
             id: '33',
             msg: '200'
         }
-    }else{
+    } else {
         return {
-            error : '手机号错误',
+            error: '手机号错误',
             msg: '201'
         }
     }
 })
 // 试试post请求
-Mock.mock("/study","post",(options)=>{
+Mock.mock("/study", "post", (options) => {
     var data = JSON.parse(options.body)
-    if(data.name == '谢宇'){
+    if (data.name == '谢宇') {
         return {
             msg: '200',
             url: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3158941597,1615290616&fm=26&gp=0.jpg'
+        }
+    }
+})
+/* 登录接口 */
+Mock.mock('/login', "post", (options) => {
+    var data = JSON.parse(options.body)
+    if (data.ursename == '15116703172' && data.password == "xieyu8888") {
+        return {
+            msg: '200',
+            information: '登录成功',
+            name: "谢宇",
+            img: 'https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=17377257,3928229413&fm=111&gp=0.jpg'
+        }
+    } else {
+        return {
+            msg: '201',
+            information: '账号或者密码错误'
+        }
+    }
+})
+/* 获取个人数据 */
+Mock.mock(/\/index/, 'get', (options)=>{
+    var srting = options.url.split("?")[1].split("=")[1]
+    if(srting == 10){
+        return{
+            name: "谢宇",
+            img: 'https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=17377257,3928229413&fm=111&gp=0.jpg'
         }
     }
 })
