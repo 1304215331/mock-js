@@ -21,21 +21,25 @@
       <div>{{obj.name}}</div>
       <img :src="obj.url" alt />
     </div>
-
     <div @click="goPost">点我发送post请求</div>
+    <!-- 子组件  son -->
+    <son :value="isShow" @alter="alter"></son>
   </div>
 </template>
 
 <script>
 // 导入封装好的axios请求
 import { hickyGet, hickyPost } from "./hicky/index";
+// 导入子组件son
+import son from "./components/son"
 export default {
   data() {
     return {
       imgList: [],
       list: [],
       input: "",
-      obj: {}
+      obj: {},
+      isShow: true
     };
   },
   async created() {
@@ -77,7 +81,16 @@ export default {
     },
     logId(e) {
       console.log(e);
+    },
+    /* 子组件传过来的事件 */
+    alter(){
+      /* this.$store.commit('increment') */  /* mutations方法 */
+      /* console.log(this.$store.getters.setCount)  */  /* 打印为数字0  getters方法 */
+      /* this.$store.dispatch('add') */  /* actions方法  用来操作mutations来执行异步代码 */
     }
+  },
+  components:{
+    son
   }
 };
 </script>
