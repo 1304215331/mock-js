@@ -28,7 +28,7 @@
     </div>
     <div @click="goPost">点我发送post请求</div>
     <!-- 子组件  son -->
-    <son :value="isShow" @alter="alter"></son>
+    <son :value="isShow" @alter="alter" class="margin_top20"></son>
   </div>
 </template>
 
@@ -50,8 +50,7 @@ export default {
   },
   async created() {
     let token = this.$store.state.token
-    console.log(token);
-    
+    console.log(this.$route.query.id);
     if(!token){
       this.$router.push("/")
       this.$message.error("请先登录");
@@ -99,14 +98,14 @@ export default {
     },
     delData(){
       this.$store.commit('delToken')
-      this.$router.push("/")
+      this.$router.push("/login")
     },
     logId(e) {
       console.log(e);
     },
     /* 子组件传过来的事件 */
     alter(){
-      /* this.$store.commit('increment') */  /* mutations方法 */
+      this.$store.commit('increment')  /* mutations方法 */
       /* console.log(this.$store.getters.setCount)  */  /* 打印为数字0  getters方法 */
       /* this.$store.dispatch('add') */  /* actions方法  用来操作mutations来执行异步代码 */
     }

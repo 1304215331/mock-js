@@ -45,7 +45,7 @@ export default {
           message: backData.data.information,
           type: "success"
         });
-        this.$router.push({name: "index", params: {id:10}})
+        this.$router.push({path: "/index/box", query: {id:10}})
         this.$store.commit('addToken',10)
       }
       if (backData.data.msg == "201") {

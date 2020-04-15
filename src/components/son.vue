@@ -1,7 +1,7 @@
 <template>
     <div class="a">
         <p>{{$store.state.count}}</p>
-        <el-button  type="primary" round @click="toFather">点我该改变vuex的数据</el-button>
+        <el-button  type="primary" round @click="toFather" class="margin_top20">点我该改变vuex的数据</el-button>
     </div>
     
 </template>
@@ -26,5 +26,8 @@ export default {
 <style lang="less">
     .a{
         margin-top: 50px;
+        .margin_top20{
+            margin-top: 20px;
+        }
     }
 </style>

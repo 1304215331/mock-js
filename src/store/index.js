@@ -6,7 +6,7 @@ const store = new Vuex.Store({
   /* 储存数据 */
     state: {
       count: 0,
-      token: '111'
+      token: ''
     },
    /* 唯一一个修改state的方法 */
     mutations: {
