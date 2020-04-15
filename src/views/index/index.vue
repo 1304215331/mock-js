@@ -29,6 +29,7 @@
     <div @click="goPost">点我发送post请求</div>
     <!-- 子组件  son -->
     <son :value="isShow" @alter="alter" class="margin_top20"></son>
+    <div>新增的哈哈哈哈呵呵呵呵嘎嘎嘎嘎啦啦啦啦阿德拉立卡</div>
   </div>
 </template>
 
