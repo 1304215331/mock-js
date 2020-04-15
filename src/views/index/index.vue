@@ -4,13 +4,12 @@
         <div><p style="color:#323232">欢迎</p>{{user.name}}</div>
         <img :src="user.img" alt="">
     </div>
-     <el-button type="primary" plain @click="delData" class="right">退出登录</el-button>
+    <!--  <el-button type="primary" plain @click="delData" class="right">退出登录哈哈哈</el-button>
     <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="(item,index) in imgList" :key="index">
-        <!--  <h3 class="medium">{{ item.imgUrl }}</h3> -->
         <img :src="item.imgUrl" alt @click="logId(item.id)" />
       </el-carousel-item>
-    </el-carousel>
+    </el-carousel> -->
     <div v-for="(item,index) in list" :key="index" class="flex">
       <i>{{item.title}}</i>
       <i>{{item.label}}</i>
@@ -29,7 +28,6 @@
     <div @click="goPost">点我发送post请求</div>
     <!-- 子组件  son -->
     <son :value="isShow" @alter="alter" class="margin_top20"></son>
-    <div>新增的哈哈哈哈呵呵呵呵嘎嘎嘎嘎啦啦啦啦阿德拉立卡</div>
   </div>
 </template>
 
